@@ -1,14 +1,35 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=PRIVACY_POLICY.html">
-    <title>Политика конфиденциальности - Гектар+lite | TOPGNSS</title>
+    <title>Privacy Policy - Hectare+lite | TOPGNSS</title>
     <script>
-        window.location.href = "PRIVACY_POLICY.html";
+        // Определяем язык браузера и перенаправляем на соответствующую версию
+        const language = navigator.language || navigator.userLanguage;
+        const langCode = language.split('-')[0].toLowerCase();
+        
+        let redirectUrl = "PRIVACY_POLICY_EN.html"; // По умолчанию английская
+        
+        if (langCode === "ru") {
+            redirectUrl = "PRIVACY_POLICY.html"; // Русская версия
+        } else if (langCode === "uk") {
+            redirectUrl = "PRIVACY_POLICY_UK.html"; // Украинская версия
+        } else if (langCode === "en") {
+            redirectUrl = "PRIVACY_POLICY_EN.html"; // Английская версия
+        } else if (langCode === "de" || langCode === "pl") {
+            // Для немецкого и польского используем английскую версию
+            redirectUrl = "PRIVACY_POLICY_EN.html";
+        }
+        
+        window.location.href = redirectUrl;
     </script>
 </head>
 <body>
-    <p>Если вы не были перенаправлены автоматически, <a href="PRIVACY_POLICY.html">нажмите здесь</a>.</p>
+    <p>If you were not redirected automatically, please select your language:</p>
+    <ul>
+        <li><a href="PRIVACY_POLICY.html">Русский (Russian)</a></li>
+        <li><a href="PRIVACY_POLICY_UK.html">Українська (Ukrainian)</a></li>
+        <li><a href="PRIVACY_POLICY_EN.html">English</a></li>
+    </ul>
 </body>
 </html>
